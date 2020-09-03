@@ -44,3 +44,21 @@ export const sameFrequency = (num1:number, num2:number) => {
     }
     return true
 }
+
+/* export const areThereDuplicates = (...args:any) => {
+    if(args.length < 1) return false
+    let argFreq: dynamicObj = {}
+    for(let ele of args){
+        argFreq[ele] = ++argFreq[ele] || 1
+    }    
+    for(let ele in argFreq){
+        if(argFreq[ele] > 1) return true
+    }
+
+    return false
+}
+ */
+export const areThereDuplicates = (...args:any) => {
+    return new Set(args).size !== args.length 
+}
+
