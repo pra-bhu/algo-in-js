@@ -1,6 +1,6 @@
 // Accepts a string and return it's reverse
 
-function reverse(str){
+export function reverse(str){
     str = str.split('')
     let rstr = []
     function reverseHelper(string){
@@ -11,5 +11,3 @@ function reverse(str){
     reverseHelper([...str])
     return rstr.join('')
 }
-
-console.log(reverse("Prashant"))
