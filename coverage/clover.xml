@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619261862367" clover="3.2.0">
-  <project timestamp="1619261862367" name="All files">
-    <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1" elements="18" coveredelements="18" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
-    <file name="binarySearch.js" path="/Users/prashant/code/personal/algo-in-js/src/Search/binarySearch.js">
-      <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+<coverage generated="1621263429870" clover="3.2.0">
+  <project timestamp="1621263429870" name="All files">
+    <metrics statements="19" coveredstatements="19" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2" elements="24" coveredelements="23" complexity="0" loc="19" ncloc="19" packages="1" files="1" classes="1"/>
+    <file name="bubbleSort.js" path="/Users/prashant/code/personal/algo-in-js/src/Sorting/bubbleSort.js">
+      <metrics statements="19" coveredstatements="19" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="2" count="7" type="stmt"/>
-      <line num="3" count="7" type="stmt"/>
-      <line num="5" count="7" type="stmt"/>
-      <line num="6" count="7" type="stmt"/>
-      <line num="7" count="24" type="stmt"/>
-      <line num="8" count="24" type="cond" truecount="2" falsecount="0"/>
-      <line num="9" count="19" type="cond" truecount="2" falsecount="0"/>
-      <line num="10" count="19" type="cond" truecount="2" falsecount="0"/>
-      <line num="11" count="19" type="stmt"/>
-      <line num="13" count="2" type="stmt"/>
+      <line num="2" count="31" type="stmt"/>
+      <line num="3" count="31" type="stmt"/>
+      <line num="4" count="31" type="stmt"/>
+      <line num="5" count="31" type="stmt"/>
+      <line num="8" count="1" type="cond" truecount="0" falsecount="1"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="10" count="3" type="stmt"/>
+      <line num="11" count="3" type="stmt"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="14" count="18" type="stmt"/>
+      <line num="15" count="84" type="stmt"/>
+      <line num="16" count="84" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="30" type="stmt"/>
+      <line num="20" count="84" type="stmt"/>
+      <line num="26" count="18" type="stmt"/>
+      <line num="27" count="18" type="stmt"/>
+      <line num="29" count="3" type="stmt"/>
+      <line num="30" count="3" type="stmt"/>
     </file>
   </project>
 </coverage>
