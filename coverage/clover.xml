@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621263429870" clover="3.2.0">
-  <project timestamp="1621263429870" name="All files">
-    <metrics statements="19" coveredstatements="19" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2" elements="24" coveredelements="23" complexity="0" loc="19" ncloc="19" packages="1" files="1" classes="1"/>
-    <file name="bubbleSort.js" path="/Users/prashant/code/personal/algo-in-js/src/Sorting/bubbleSort.js">
-      <metrics statements="19" coveredstatements="19" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+<coverage generated="1621339274345" clover="3.2.0">
+  <project timestamp="1621339274345" name="All files">
+    <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1" elements="23" coveredelements="23" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
+    <file name="selectionSort.js" path="/Users/prashant/code/personal/algo-in-js/src/Sorting/selectionSort.js">
+      <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="2" count="31" type="stmt"/>
-      <line num="3" count="31" type="stmt"/>
-      <line num="4" count="31" type="stmt"/>
-      <line num="5" count="31" type="stmt"/>
-      <line num="8" count="1" type="cond" truecount="0" falsecount="1"/>
-      <line num="9" count="3" type="stmt"/>
-      <line num="10" count="3" type="stmt"/>
-      <line num="11" count="3" type="stmt"/>
-      <line num="13" count="3" type="stmt"/>
-      <line num="14" count="18" type="stmt"/>
-      <line num="15" count="84" type="stmt"/>
-      <line num="16" count="84" type="cond" truecount="2" falsecount="0"/>
-      <line num="17" count="30" type="stmt"/>
-      <line num="20" count="84" type="stmt"/>
-      <line num="26" count="18" type="stmt"/>
-      <line num="27" count="18" type="stmt"/>
-      <line num="29" count="3" type="stmt"/>
-      <line num="30" count="3" type="stmt"/>
+      <line num="2" count="3" type="stmt"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="6" count="21" type="stmt"/>
+      <line num="7" count="21" type="stmt"/>
+      <line num="8" count="21" type="stmt"/>
+      <line num="9" count="87" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="20" type="stmt"/>
+      <line num="11" count="20" type="stmt"/>
+      <line num="13" count="87" type="stmt"/>
+      <line num="16" count="21" type="stmt"/>
+      <line num="19" count="21" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="21" type="stmt"/>
+      <line num="22" count="21" type="stmt"/>
+      <line num="25" count="3" type="stmt"/>
+      <line num="26" count="3" type="stmt"/>
     </file>
   </project>
 </coverage>
