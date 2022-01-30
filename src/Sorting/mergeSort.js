@@ -18,11 +18,13 @@ const merge = (arr1=[],arr2=[]) => {
     return mArr
 }
 
-const sp
-
 const mergeSort = (arr=[]) => {
-    let sortedArr = []
+    if(arr.length <=1) return arr
+    let midIdx =  Math.floor(arr.length/2)
+    let arr1 =  mergeSort(arr.slice(0, midIdx))
+    let arr2 = mergeSort(arr.slice(midIdx))
     
-    return sortedArr
+    return merge(arr1,arr2)
 }
-export {merge}
+
+export {merge, mergeSort}
