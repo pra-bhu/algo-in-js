@@ -7,7 +7,6 @@ const pivot = (arr, startIdx = 0, endIdx = arr.length - 1) => {
         }
     }
     [arr[startIdx], arr[pivotIdx]] = [arr[pivotIdx], arr[startIdx]]
-    console.log('arr: '+ arr);
     return pivotIdx
 }
 
@@ -19,7 +18,7 @@ const sort = (arr, left = 0, right= arr.length-1) => {
         // left array sort
         sort (arr, left, pivotIdx - 1)
         // right array sort
-        sort(arr, pivotIdx+1, right)
+        sort(arr, pivotIdx + 1, right)
     }
     return arr
 }
