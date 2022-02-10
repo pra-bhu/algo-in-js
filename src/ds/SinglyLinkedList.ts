@@ -22,12 +22,13 @@ class SinglyLinkedList {
         if(this._length <= 0){
             this._head = node
             this._tail = node
-            this._length += 1
-            return
         }
-        this._tail.next = node
-        this._tail = node
+        else {
+            this._tail.next = node
+            this._tail = node
+        }
         this._length += 1
+        return this
     }
 
     
@@ -51,7 +52,9 @@ let singlyLinkedList = new SinglyLinkedList()
 singlyLinkedList.push("Node1")
 console.log('tails before insertion',singlyLinkedList.tail)
 singlyLinkedList.push("Node2")
-console.log('singlyLinkedList.length : ' + singlyLinkedList.length + ' ')
-console.log('head',singlyLinkedList.head)
+singlyLinkedList.push("Node3")
+singlyLinkedList.push("Node4")
+// console.log('singlyLinkedList.length : ' + singlyLinkedList.length + ' ')
+console.log('head',singlyLinkedList)
 console.log('tails after insertion',singlyLinkedList.tail)
 
