@@ -1,8 +1,10 @@
+"use strict";
+exports.__esModule = true;
+exports.SinglyLinkedList = void 0;
 var Node = /** @class */ (function () {
     function Node(value, next) {
-        this.next = null;
         this.value = value;
-        this.next = next;
+        this.next = null;
     }
     return Node;
 }());
@@ -24,6 +26,18 @@ var SinglyLinkedList = /** @class */ (function () {
         }
         this._length += 1;
         return this;
+    };
+    SinglyLinkedList.prototype.pop = function () {
+        var previousNode = null;
+        var currentNode = this._head;
+        while (currentNode.next) {
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+        previousNode.next = null;
+        this._tail = previousNode;
+        this._length -= 1;
+        return currentNode;
     };
     Object.defineProperty(SinglyLinkedList.prototype, "length", {
         get: function () {
@@ -48,12 +62,4 @@ var SinglyLinkedList = /** @class */ (function () {
     });
     return SinglyLinkedList;
 }());
-var singlyLinkedList = new SinglyLinkedList();
-singlyLinkedList.push("Node1");
-console.log('tails before insertion', singlyLinkedList.tail);
-singlyLinkedList.push("Node2");
-singlyLinkedList.push("Node3");
-singlyLinkedList.push("Node4");
-// console.log('singlyLinkedList.length : ' + singlyLinkedList.length + ' ')
-console.log('head', singlyLinkedList);
-console.log('tails after insertion', singlyLinkedList.tail);
+exports.SinglyLinkedList = SinglyLinkedList;
