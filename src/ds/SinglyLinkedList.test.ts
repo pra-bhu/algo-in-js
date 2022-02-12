@@ -20,4 +20,13 @@ describe('creates a Singly Linked list', () => {
         expect(singlyLinkedList.length).toBe(1)
         expect(singlyLinkedList.head.value).toBe('Node 1')
       })
+    test('should have new head and tail', () => { 
+        singlyLinkedList.push("Node 2")
+        singlyLinkedList.push("Node 3")
+
+        expect(singlyLinkedList.length).toBe(3)
+        expect(singlyLinkedList.head.value).toBe('Node 1')
+        expect(singlyLinkedList.head.next.value).toBe('Node 2')
+        expect(singlyLinkedList.tail.value).toBe('Node 3')
+      })
   })
