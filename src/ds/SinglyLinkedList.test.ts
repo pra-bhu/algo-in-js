@@ -12,3 +12,12 @@ describe('creates a Singly Linked list', () => {
         expect(singlyLinkedList.length).toBe(0)
      })
  })
+
+ describe('pushes a new element to linked list', () => { 
+    const singlyLinkedList = new SinglyLinkedList() 
+    test('should return the new linked list', () => { 
+        singlyLinkedList.push("Node 1")
+        expect(singlyLinkedList.length).toBe(1)
+        expect(singlyLinkedList.head.value).toBe('Node 1')
+      })
+  })
