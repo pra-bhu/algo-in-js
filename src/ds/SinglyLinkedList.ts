@@ -32,15 +32,20 @@ class SinglyLinkedList {
     }
 
     pop(): Node{
-        let previousNode = null
+        if(!this._head) return undefined
         let currentNode = this._head
+        let previousNode = currentNode 
         while(currentNode.next) {
             previousNode = currentNode
             currentNode = currentNode.next
         }
-        previousNode.next = null
         this._tail = previousNode
+        this._tail.next = null
         this._length -= 1
+        if(this.length === 0){
+            this._head = null
+            this._tail = null
+        }
         return currentNode
     }
 
