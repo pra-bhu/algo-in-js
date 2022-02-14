@@ -49,6 +49,18 @@ class SinglyLinkedList {
         return currentNode
     }
 
+    shift(): Node{
+        if(!this._head) return undefined
+        let currentNode = this._head
+        this._head = currentNode.next
+        this._length -=1
+        if(this._length == 0){
+            this._head = null
+            this._tail = null
+        }
+        return currentNode
+    }
+
     
     get length() : number {
         return this._length
