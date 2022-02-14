@@ -75,3 +75,47 @@ describe('creates a Singly Linked list', () => {
         expect(singlyLinkedList.head).toBe(null)
      })
   })
+
+describe('removes the node from the beginning of the linked list', () => {
+    const singlyLinkedList1 = new SinglyLinkedList()
+    singlyLinkedList1.push("Node 1")
+    singlyLinkedList1.push("Node 2")
+    singlyLinkedList1.push("Node 3")
+    console.log('singlyLinkedList1.length '+ singlyLinkedList1.length);
+    
+    test('should remove Node 1 from the head and point the head to Node 2', () => { 
+          
+        singlyLinkedList1.shift()
+  
+        expect(singlyLinkedList1.length).toBe(2)
+        expect(singlyLinkedList1.head.value).toBe('Node 2')
+        expect(singlyLinkedList1.head.next.value).toBe('Node 3')
+     })
+    
+    test('should remove Node 2 from the head and point the head to Node 3', () => { 
+    
+        singlyLinkedList1.shift()
+
+        expect(singlyLinkedList1.length).toBe(1)
+        expect(singlyLinkedList1.head.value).toBe('Node 3')
+        expect(singlyLinkedList1.head.next).toBe(null)
+    
+    })
+
+  test('should remove Node 3 from the head and empty the list', () => { 
+
+      singlyLinkedList1.shift()
+
+      expect(singlyLinkedList1.length).toBe(0)
+      expect(singlyLinkedList1.tail).toBe(null)
+      expect(singlyLinkedList1.head).toBe(null)
+   })
+     
+   test('should return undefined', () => { 
+      expect(singlyLinkedList1.shift()).toBe(undefined)
+      
+      expect(singlyLinkedList1.length).toBe(0)
+      expect(singlyLinkedList1.tail).toBe(null)
+      expect(singlyLinkedList1.head).toBe(null)
+   })
+})
