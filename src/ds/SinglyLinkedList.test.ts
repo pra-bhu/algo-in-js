@@ -145,3 +145,26 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
        expect(singlyLinkedList.tail.value).toBe('Node 1')
      })
  })
+
+
+ describe.only('returns the node at a specific index', () => {
+   const singlyLinkedList1 = new SinglyLinkedList()
+   singlyLinkedList1.push("Node 1")
+   singlyLinkedList1.push("Node 2")
+   singlyLinkedList1.push("Node 3")
+   test('singlyLinkedList1.get(0).value should return Node 1', () => {
+      expect(singlyLinkedList1.get(0).value).toBe("Node 1")
+   })
+   test('singlyLinkedList1.get(1).value should return Node 2', () => {
+      expect(singlyLinkedList1.get(1).value).toBe("Node 2")
+   })
+   test('singlyLinkedList1.get(2).value should return Node 3', () => {
+      expect(singlyLinkedList1.get(2).value).toBe("Node 3")
+   })
+   test('singlyLinkedList1.get(-1).value should return null', () => {
+      expect(singlyLinkedList1.get(-1)).toBe(null)
+   })
+   test('singlyLinkedList1.get(12).value should return null', () => {
+      expect(singlyLinkedList1.get(12)).toBe(null)
+   })
+ })
