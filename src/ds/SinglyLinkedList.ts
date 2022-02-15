@@ -90,6 +90,18 @@ class SinglyLinkedList {
     get head() : Node {
         return this._head
     }
+
+    get(idx: number) :Node{
+        if (idx < 0 || idx >= this._length) return null
+
+        let i:number = 0
+        let node:Node = this._head
+        while (i != idx){
+            node = node.next
+            i++
+        }
+        return node
+    }
     
 }
 
