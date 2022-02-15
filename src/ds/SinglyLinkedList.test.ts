@@ -81,7 +81,6 @@ describe('removes the node from the beginning of the linked list', () => {
     singlyLinkedList1.push("Node 1")
     singlyLinkedList1.push("Node 2")
     singlyLinkedList1.push("Node 3")
-    console.log('singlyLinkedList1.length '+ singlyLinkedList1.length);
     
     test('should remove Node 1 from the head and point the head to Node 2', () => { 
           
@@ -119,3 +118,30 @@ describe('removes the node from the beginning of the linked list', () => {
       expect(singlyLinkedList1.head).toBe(null)
    })
 })
+
+
+describe('TEST unshift:pushes a new element at the beginning of the linked list', () => { 
+   const singlyLinkedList = new SinglyLinkedList() 
+   // console.log(singlyLinkedList.length)
+   test('should return the new linked list', () => { 
+       singlyLinkedList.unshift("Node 1")
+       expect(singlyLinkedList.length).toBe(1)
+       expect(singlyLinkedList.head.value).toBe('Node 1')
+     })
+   test('should have Node 2 as head and Node 1 as tail', () => { 
+       singlyLinkedList.unshift("Node 2")
+
+       expect(singlyLinkedList.length).toBe(2)
+       expect(singlyLinkedList.head.value).toBe('Node 2')
+       expect(singlyLinkedList.head.next.value).toBe('Node 1')
+       expect(singlyLinkedList.tail.value).toBe('Node 1')
+     })
+   test('should have Node 3 as head and Node 1 as tail', () => { 
+       singlyLinkedList.unshift("Node 3")
+
+       expect(singlyLinkedList.length).toBe(3)
+       expect(singlyLinkedList.head.value).toBe('Node 3')
+       expect(singlyLinkedList.head.next.value).toBe('Node 2')
+       expect(singlyLinkedList.tail.value).toBe('Node 1')
+     })
+ })
