@@ -61,6 +61,21 @@ class SinglyLinkedList {
         return currentNode
     }
 
+    unshift(value : string): SinglyLinkedList{
+        const node = new Node(value)
+        console.log("TEST "+ this.length)
+        if(!this._head) {
+            this._head = node 
+            this._tail = this._head
+        }
+        else {
+            node.next = this._head
+            this._head = node
+        }
+        this._length += 1
+        return this
+    }
+
     
     get length() : number {
         return this._length
