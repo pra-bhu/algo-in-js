@@ -147,7 +147,7 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
  })
 
 
- describe.only('returns the node at a specific index', () => {
+ describe('returns the node at a specific index', () => {
    const singlyLinkedList1 = new SinglyLinkedList()
    singlyLinkedList1.push("Node 1")
    singlyLinkedList1.push("Node 2")
@@ -166,5 +166,24 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
    })
    test('singlyLinkedList1.get(12).value should return null', () => {
       expect(singlyLinkedList1.get(12)).toBe(null)
+   })
+ })
+
+ describe('sets the node with the provided value at a specific index', () => {
+   const singlyLinkedList1 = new SinglyLinkedList()
+   singlyLinkedList1.push("Node 1")
+   singlyLinkedList1.push("Node 2")
+   singlyLinkedList1.push("Node 3")
+   test('singlyLinkedList1.set(0,"Node 4") should return true', () => {
+      expect(singlyLinkedList1.set(0,'Node 4')).toBe(true)
+      expect(singlyLinkedList1.get(0).value).toBe("Node 4")
+   })
+   test('singlyLinkedList1.set(1,"Node 5") should return true', () => {
+      expect(singlyLinkedList1.set(1,'Node 5')).toBe(true)
+      expect(singlyLinkedList1.get(1).value).toBe("Node 5")
+   })
+   test('singlyLinkedList1.set(3,"Node 6") should return false', () => {
+      expect(singlyLinkedList1.set(3,'Node 6')).toBe(false)
+      expect(singlyLinkedList1.get(3)).toBe(null)
    })
  })
