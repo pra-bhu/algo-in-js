@@ -103,6 +103,12 @@ class SinglyLinkedList {
         return node
     }
     
+    set(index: number, value: string): boolean{
+        let node = this.get(index)
+        if(!node) return false
+        node.value = value
+        return true
+    }
 }
 
 
