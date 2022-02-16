@@ -3,7 +3,7 @@ class Node {
     next?:Node
     constructor(value: string, next?:Node ) {
         this.value = value
-        this.next = null
+        this.next = next || null
     }
 }
 
@@ -107,6 +107,18 @@ class SinglyLinkedList {
         let node = this.get(index)
         if(!node) return false
         node.value = value
+        return true
+    }
+
+    insert(index: number, value: string): boolean{
+        if(index < 0 || index > this._length) return false
+        if(index == 0 && this.unshift(value)) return  true
+        if(index == this._length && this.push(value)) return true
+        let previousNode = this.get(index-1)
+        let targetNode = this.get(index)
+        let node = new Node(value,targetNode)
+        previousNode.next = node
+        this._length+=1
         return true
     }
 }
