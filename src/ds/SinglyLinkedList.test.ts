@@ -187,3 +187,33 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
       expect(singlyLinkedList1.get(3)).toBe(null)
    })
  })
+ 
+ 
+ describe('inserts the node with the provided value at a specific index', () => {
+   const singlyLinkedList1 = new SinglyLinkedList()
+   singlyLinkedList1.push("Node 1")
+   singlyLinkedList1.push("Node 2")
+   singlyLinkedList1.push("Node 3")
+   test('singlyLinkedList1.insert(0,"Node 4") should return true', () => {
+      expect(singlyLinkedList1.insert(0,'Node 4')).toBe(true)
+      expect(singlyLinkedList1.get(0).value).toBe("Node 4")
+      expect(singlyLinkedList1.length).toBe(4)
+   })
+   test('singlyLinkedList1.insert(4,"Node 5") should return true', () => {
+      expect(singlyLinkedList1.insert(4,'Node 5')).toBe(true)
+      expect(singlyLinkedList1.get(4).value).toBe("Node 5")
+      expect(singlyLinkedList1.length).toBe(5)
+   })
+   test('singlyLinkedList1.insert(2,"Node 6") should return true', () => {
+      expect(singlyLinkedList1.insert(2,'Node 6')).toBe(true)
+      expect(singlyLinkedList1.get(2).value).toBe("Node 6")
+      expect(singlyLinkedList1.get(1).value).toBe("Node 1")
+      expect(singlyLinkedList1.get(3).value).toBe("Node 2")
+      expect(singlyLinkedList1.length).toBe(6)
+   })
+   test('singlyLinkedList1.insert(10,"Node 5") should return false', () => {
+      expect(singlyLinkedList1.insert(10,'Node 5')).toBe(false)
+   })
+ })
+
+
