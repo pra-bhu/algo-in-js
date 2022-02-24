@@ -4,11 +4,13 @@ module.exports = {
   collectCoverage: true,
   moduleFileExtensions: [
     "js",
-    "mjs"
+    "mjs",
+    "ts"
   ],
   transform: {
     "^.+\\.js$": "babel-jest",
-    "^.+\\.mjs$": "babel-jest"
+    "^.+\\.mjs$": "babel-jest",
+    "^.+\\.ts$": "babel-jest"
   },
  
   testRegex: "((\\.|/*.)(spec))\\.js?$"
