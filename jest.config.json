@@ -1,15 +1,13 @@
 {
+    "preset":"ts-jest",
+    "testEnvironment": "node",
+    "roots":["src"],
     "collectCoverage": true,
     "moduleFileExtensions": [
       "js",
       "mjs",
       "ts"
     ],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.mjs$": "babel-jest",
-      "^.+\\.ts$": "babel-jest"
-    },
-   
-    "testRegex": "((\\.|/*.)(test|spec))\\.(js|ts)?$"
+    "testRegex": "(.*.(test|spec)).(jsx?|tsx?|ts?)$",
+    "verbose": true
   }
