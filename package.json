@@ -2,6 +2,7 @@
     "name": "algo-in-js",
     "version": "1.0.0",
     "main": "src/index.js",
+    "type": "module",
     "repository": "https://github.com/pra-bhu/algo-in-js",
     "author": "pra-bhu",
     "license": "MIT",
@@ -16,7 +17,11 @@
         "ts-node": "^9.1.1",
         "typescript": "^3.9.7"
     },
+    "jest": {
+        "verbose": true
+      },
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "build": "tsc"
     }
 }
