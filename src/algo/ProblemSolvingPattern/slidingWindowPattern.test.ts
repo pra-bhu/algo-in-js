@@ -47,12 +47,12 @@ describe('minSubArrayLen', () => {
 
 
 
-describe.only('findLongestString', () => {
+describe('findLongestString', () => {
   test('findLongestSubstring("") // 0', () => {
     expect(findLongestSubstring('')).toBe(0)
 
   })
-  test.only('findLongestSubstring("rithmschool") // 7', () => {
+  test('findLongestSubstring("rithmschool") // 7', () => {
     expect(findLongestSubstring("rithmschool")).toBe(7)
 
   })
