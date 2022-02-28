@@ -215,5 +215,30 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
       expect(singlyLinkedList1.insert(10,'Node 5')).toBe(false)
    })
  })
+ 
+ 
+ describe.only('removes the node with the provided value at a specific index', () => {
+   const singlyLinkedList1 = new SinglyLinkedList()
+   singlyLinkedList1.push("Node 0")
+   singlyLinkedList1.push("Node 1")
+   singlyLinkedList1.push("Node 2")
+   singlyLinkedList1.push("Node 3")
+   singlyLinkedList1.push("Node 4")
+   test('singlyLinkedList1.remove(0) should return Node 0', () => {
+      expect(singlyLinkedList1.remove(0).value).toBe("Node 0")
+      expect(singlyLinkedList1.length).toBe(4)
+   })
+   test('singlyLinkedList1.remove(4) should return undefined', () => {
+      expect(singlyLinkedList1.remove(4)).toBe(undefined)
+      expect(singlyLinkedList1.length).toBe(4)
+   })
+   test('singlyLinkedList1.remove(2) should return Node 3', () => {
+      expect(singlyLinkedList1.remove(2).value).toBe('Node 3')
+      expect(singlyLinkedList1.get(2).value).toBe("Node 4")
+      expect(singlyLinkedList1.get(1).value).toBe("Node 2")
+      expect(singlyLinkedList1.get(3)).toBe(null)
+      expect(singlyLinkedList1.length).toBe(3)
+   })
+ })
 
 
