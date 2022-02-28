@@ -76,16 +76,13 @@ class SinglyLinkedList {
         return this
     }
 
-    
     get length() : number {
         return this._length
     }
 
-    
     get tail() : Node {
         return this._tail
     }
-    
     
     get head() : Node {
         return this._head
@@ -120,6 +117,21 @@ class SinglyLinkedList {
         previousNode.next = node
         this._length+=1
         return true
+    }
+
+    remove(index: number): Node{
+        if(index < 0 || index >= this.length) return undefined
+
+        if(index == this.length - 1) return this.pop()
+
+        if(index == 0) return this.shift()
+
+        let targetNode = this.get(index)
+        let previousNode = this.get(index - 1)
+        previousNode.next = this.get(index + 1)
+
+        this._length--
+        return targetNode
     }
 }
 
