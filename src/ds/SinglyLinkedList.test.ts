@@ -217,7 +217,7 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
  })
  
  
- describe.only('removes the node with the provided value at a specific index', () => {
+ describe('removes the node with the provided value at a specific index', () => {
    const singlyLinkedList1 = new SinglyLinkedList()
    singlyLinkedList1.push("Node 0")
    singlyLinkedList1.push("Node 1")
@@ -242,3 +242,29 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
  })
 
 
+describe.only('reverses a linked list in place', () => {
+   let singlyLinkedList1 = new SinglyLinkedList()
+   beforeEach(()=> {
+      singlyLinkedList1.push("Node 0")
+      singlyLinkedList1.push("Node 1")
+      singlyLinkedList1.push("Node 2")
+      singlyLinkedList1.push("Node 3")
+      singlyLinkedList1.push("Node 4")
+      return singlyLinkedList1
+   })
+   test('should return undefined', () => {
+      let singlyLinkedList2 = new SinglyLinkedList();
+      expect(singlyLinkedList2.reverse()).toBe(undefined)
+   })
+   test('should return linked List in reverse order', () => {
+      const singlyLinkedList1 = new SinglyLinkedList()
+      singlyLinkedList1.push("Node 0")
+      singlyLinkedList1.push("Node 1")
+      singlyLinkedList1.push("Node 2")
+      singlyLinkedList1.push("Node 3")
+      singlyLinkedList1.push("Node 4")
+      singlyLinkedList1.reverse()
+      expect(singlyLinkedList1.head.value).toBe("Node 4")
+      expect(singlyLinkedList1.tail.value).toBe("Node 0")
+   })
+})
