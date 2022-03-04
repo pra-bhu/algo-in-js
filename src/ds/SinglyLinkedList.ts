@@ -133,6 +133,24 @@ class SinglyLinkedList {
         this._length--
         return targetNode
     }
+
+    reverse():SinglyLinkedList{
+        if(this._length <= 0) return undefined
+
+        let currentNode = this.head
+        this._head = this.tail
+        this._tail = currentNode
+        let previousNode = null
+        let nextNode
+        for(let i = 0; i < this.length; i++){
+            nextNode = currentNode.next
+            currentNode.next = previousNode
+            previousNode = currentNode
+            nextNode.next = previousNode
+            currentNode = nextNode
+        }
+        return this
+    }
 }
 
 
