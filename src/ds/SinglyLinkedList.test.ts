@@ -242,7 +242,7 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
  })
 
 
-describe.only('reverses a linked list in place', () => {
+describe('reverses a linked list in place', () => {
    let singlyLinkedList1 = new SinglyLinkedList()
    beforeEach(()=> {
       singlyLinkedList1.push("Node 0")
@@ -265,6 +265,9 @@ describe.only('reverses a linked list in place', () => {
       singlyLinkedList1.push("Node 4")
       singlyLinkedList1.reverse()
       expect(singlyLinkedList1.head.value).toBe("Node 4")
+      expect(singlyLinkedList1.get(1).value).toBe("Node 3")
+      expect(singlyLinkedList1.get(2).value).toBe("Node 2")
+      expect(singlyLinkedList1.get(3).value).toBe("Node 1")
       expect(singlyLinkedList1.tail.value).toBe("Node 0")
    })
 })

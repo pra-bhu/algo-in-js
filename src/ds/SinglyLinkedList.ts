@@ -134,7 +134,7 @@ class SinglyLinkedList {
         return targetNode
     }
 
-    reverse():SinglyLinkedList{
+    reverse():SinglyLinkedList{ 
         if(this._length <= 0) return undefined
 
         let currentNode = this.head
@@ -146,7 +146,6 @@ class SinglyLinkedList {
             nextNode = currentNode.next
             currentNode.next = previousNode
             previousNode = currentNode
-            nextNode.next = previousNode
             currentNode = nextNode
         }
         return this
