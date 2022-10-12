@@ -1,7 +1,7 @@
 import { DoublyLinkedList } from './DoublyLinkedList'
 
 
-describe.only('creates a Doubly Linked list', () => {
+describe('creates a Doubly Linked list', () => {
     test('should return a doubly linked list object', () => { 
         const doublyLinkedList = new DoublyLinkedList()
         expect(doublyLinkedList).toHaveProperty('_head')
@@ -19,14 +19,20 @@ describe.only('creates a Doubly Linked list', () => {
          doublyLinkedList.push("Node 1")
          expect(doublyLinkedList.length).toBe(1)
          expect(doublyLinkedList.head.value).toBe('Node 1')
-         expect(doublyLinkedList.head.next).toBe(null)
-         expect(doublyLinkedList.head.prev).toBe(null)
+         expect(doublyLinkedList.head.next).toBe(undefined)
+         expect(doublyLinkedList.head.prev).toBe(undefined)
          expect(doublyLinkedList.tail.value).toBe('Node 1')
-         expect(doublyLinkedList.tail.next).toBe(null)
-         expect(doublyLinkedList.tail.prev).toBe(null)
+         expect(doublyLinkedList.tail.next).toBe(undefined)
+         expect(doublyLinkedList.tail.prev).toBe(undefined)
         })
         test('should have new head and tail', () => { 
             doublyLinkedList.push("Node 2")
+            expect(doublyLinkedList.head.value).toBe('Node 1')
+            expect(doublyLinkedList.head.next.value).toBe('Node 2')
+            expect(doublyLinkedList.head.prev).toBe(undefined)
+            expect(doublyLinkedList.tail.value).toBe('Node 2')
+            expect(doublyLinkedList.tail.next).toBe(undefined)
+            expect(doublyLinkedList.tail.prev.value).toBe('Node 1')
             doublyLinkedList.push("Node 3")
             
             expect(doublyLinkedList.length).toBe(3)
@@ -38,94 +44,107 @@ describe.only('creates a Doubly Linked list', () => {
         })
     })
     
+    describe('pops an element from the tail of the list', () => {
+        const doublyLinkedList = new DoublyLinkedList()
+        doublyLinkedList.push("Node 1")
+        doublyLinkedList.push("Node 2")
+        doublyLinkedList.push("Node 3")
+        test('should remove Node 3 from the tail and point the tail to Node 2', () => { 
+            
+            const node = doublyLinkedList.pop()
+            expect(node.next).toBe(undefined)
+            expect(node.prev).toBe(undefined)
+            expect(node.value).toBe('Node 3')
+
+            expect(doublyLinkedList.length).toBe(2)
+            expect(doublyLinkedList.tail.value).toBe('Node 2')
+            expect(doublyLinkedList.tail.next).toBe(null)
+            expect(doublyLinkedList.tail.prev.value).toBe('Node 1')
+        })
+        
+        test('should remove Node 2 from the tail and point the tail to Node 1', () => { 
+            
+            doublyLinkedList.pop()
+            
+            expect(doublyLinkedList.length).toBe(1)
+            expect(doublyLinkedList.tail.value).toBe('Node 1')
+            expect(doublyLinkedList.tail.next).toBe(null)
+            expect(doublyLinkedList.head.next).toBe(null)
+            expect(doublyLinkedList.head.value).toBe("Node 1")
+            
+        })
+        
+        test('should remove Node 1 from the tail and empty the list', () => { 
+            
+            doublyLinkedList.pop()
+            
+            expect(doublyLinkedList.length).toBe(0)
+            expect(doublyLinkedList.tail).toBe(null)
+            expect(doublyLinkedList.head).toBe(null)
+        })
+        
+        test('should return undefined', () => { 
+            expect(doublyLinkedList.pop()).toBe(null)
+            
+            expect(doublyLinkedList.length).toBe(0)
+            expect(doublyLinkedList.tail).toBe(null)
+            expect(doublyLinkedList.head).toBe(null)
+        })
+    })
+    
+    describe('SHIFT: removes the node from the beginning of the linked list', () => {
+        const doublyLinkedList1 = new DoublyLinkedList()
+        doublyLinkedList1.push("Node 1")
+        doublyLinkedList1.push("Node 2")
+        doublyLinkedList1.push("Node 3")
+        
+        test('should remove Node 1 from the head and point the head to Node 2', () => { 
+            
+            const node = doublyLinkedList1.shift()
+            expect(node.next).toBe(undefined)
+            expect(node.prev).toBe(undefined)
+            expect(node.value).toBe('Node 1')
+
+            expect(doublyLinkedList1.length).toBe(2)
+            expect(doublyLinkedList1.head.value).toBe('Node 2')
+            expect(doublyLinkedList1.head.prev).toBe(null)
+            expect(doublyLinkedList1.head.next.value).toBe('Node 3')
+        })
+        
+        test('should remove Node 2 from the head and point the head to Node 3', () => { 
+            
+            const node = doublyLinkedList1.shift()
+            expect(node.next).toBe(undefined)
+            expect(node.prev).toBe(null)
+            expect(node.value).toBe('Node 2')
+            
+            expect(doublyLinkedList1.length).toBe(1)
+            expect(doublyLinkedList1.head.value).toBe('Node 3')
+            expect(doublyLinkedList1.head.next).toBe(undefined)
+            expect(doublyLinkedList1.tail.value).toBe('Node 3')
+            expect(doublyLinkedList1.tail.next).toBe(undefined)
+            
+        })
+        
+        test('should remove Node 3 from the head and empty the list', () => { 
+            
+            doublyLinkedList1.shift()
+            
+            expect(doublyLinkedList1.length).toBe(0)
+            expect(doublyLinkedList1.tail).toBe(null)
+            expect(doublyLinkedList1.head).toBe(null)
+        })
+        
+        test('should return undefined', () => { 
+            expect(doublyLinkedList1.shift()).toBe(null)
+            
+            expect(doublyLinkedList1.length).toBe(0)
+            expect(doublyLinkedList1.tail).toBe(null)
+            expect(doublyLinkedList1.head).toBe(null)
+        })
+    })
+    
     /* 
-describe('pops an element from the tail of the list', () => {
-    const doublyLinkedList = new DoublyLinkedList()
-    doublyLinkedList.push("Node 1")
-    doublyLinkedList.push("Node 2")
-    doublyLinkedList.push("Node 3")
-    test('should remove Node 3 from the tail and point the tail to Node 2', () => { 
-        
-        doublyLinkedList.pop()
-
-        expect(doublyLinkedList.length).toBe(2)
-        expect(doublyLinkedList.tail.value).toBe('Node 2')
-        expect(doublyLinkedList.tail.next).toBe(null)
-    })
-    
-    test('should remove Node 2 from the tail and point the tail to Node 1', () => { 
-        
-        doublyLinkedList.pop()
-
-        expect(doublyLinkedList.length).toBe(1)
-        expect(doublyLinkedList.tail.value).toBe('Node 1')
-        expect(doublyLinkedList.tail.next).toBe(null)
-        expect(doublyLinkedList.head.next).toBe(null)
-        expect(doublyLinkedList.head.value).toBe("Node 1")
-        
-    })
-
-    test('should remove Node 1 from the tail and empty the list', () => { 
-
-        doublyLinkedList.pop()
-  
-        expect(doublyLinkedList.length).toBe(0)
-        expect(doublyLinkedList.tail).toBe(null)
-        expect(doublyLinkedList.head).toBe(null)
-     })
-       
-    test('should return undefined', () => { 
-        expect(doublyLinkedList.pop()).toBe(undefined)
-        
-        expect(doublyLinkedList.length).toBe(0)
-        expect(doublyLinkedList.tail).toBe(null)
-        expect(doublyLinkedList.head).toBe(null)
-     })
-  })
-
-describe('removes the node from the beginning of the linked list', () => {
-    const doublyLinkedList1 = new DoublyLinkedList()
-    doublyLinkedList1.push("Node 1")
-    doublyLinkedList1.push("Node 2")
-    doublyLinkedList1.push("Node 3")
-    
-    test('should remove Node 1 from the head and point the head to Node 2', () => { 
-          
-        doublyLinkedList1.shift()
-  
-        expect(doublyLinkedList1.length).toBe(2)
-        expect(doublyLinkedList1.head.value).toBe('Node 2')
-        expect(doublyLinkedList1.head.next.value).toBe('Node 3')
-     })
-    
-    test('should remove Node 2 from the head and point the head to Node 3', () => { 
-    
-        doublyLinkedList1.shift()
-
-        expect(doublyLinkedList1.length).toBe(1)
-        expect(doublyLinkedList1.head.value).toBe('Node 3')
-        expect(doublyLinkedList1.head.next).toBe(null)
-    
-    })
-
-  test('should remove Node 3 from the head and empty the list', () => { 
-
-      doublyLinkedList1.shift()
-
-      expect(doublyLinkedList1.length).toBe(0)
-      expect(doublyLinkedList1.tail).toBe(null)
-      expect(doublyLinkedList1.head).toBe(null)
-   })
-     
-   test('should return undefined', () => { 
-      expect(doublyLinkedList1.shift()).toBe(undefined)
-      
-      expect(doublyLinkedList1.length).toBe(0)
-      expect(doublyLinkedList1.tail).toBe(null)
-      expect(doublyLinkedList1.head).toBe(null)
-   })
-})
-
 
 describe('TEST unshift:pushes a new element at the beginning of the linked list', () => { 
    const doublyLinkedList = new DoublyLinkedList() 
