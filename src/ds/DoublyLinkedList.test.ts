@@ -13,7 +13,7 @@ describe('creates a Doubly Linked list', () => {
         expect(doublyLinkedList.length).toBe(0)
      })
  })
- describe('pushes a new element to linked list', () => { 
+ describe('PUSH(): pushes a new element to linked list', () => { 
      const doublyLinkedList = new DoublyLinkedList() 
      test('should return the new linked list', () => { 
          doublyLinkedList.push("Node 1")
@@ -44,7 +44,7 @@ describe('creates a Doubly Linked list', () => {
         })
     })
     
-    describe('pops an element from the tail of the list', () => {
+    describe('POP(): pops an element from the tail of the list', () => {
         const doublyLinkedList = new DoublyLinkedList()
         doublyLinkedList.push("Node 1")
         doublyLinkedList.push("Node 2")
@@ -92,7 +92,7 @@ describe('creates a Doubly Linked list', () => {
         })
     })
     
-    describe('SHIFT: removes the node from the beginning of the linked list', () => {
+    describe('SHIFT(): removes the node from the beginning of the linked list', () => {
         const doublyLinkedList1 = new DoublyLinkedList()
         doublyLinkedList1.push("Node 1")
         doublyLinkedList1.push("Node 2")
@@ -144,106 +144,124 @@ describe('creates a Doubly Linked list', () => {
         })
     })
     
-    /* 
+    
+    describe('UNSHIFT():pushes a new element at the beginning of the linked list', () => { 
+       const doublyLinkedList = new DoublyLinkedList() 
+       // console.log(doublyLinkedList.length)
+       test('should return the new linked list', () => { 
+          doublyLinkedList.unshift("Node 1")
+          expect(doublyLinkedList.length).toBe(1)
+          expect(doublyLinkedList.head.value).toBe('Node 1')
+          expect(doublyLinkedList.head.next).toBe(undefined)
+          expect(doublyLinkedList.head.prev).toBe(undefined)
+          expect(doublyLinkedList.tail.value).toBe('Node 1')
+          expect(doublyLinkedList.tail.next).toBe(undefined)
+          expect(doublyLinkedList.tail.prev).toBe(undefined)
 
-describe('TEST unshift:pushes a new element at the beginning of the linked list', () => { 
-   const doublyLinkedList = new DoublyLinkedList() 
-   // console.log(doublyLinkedList.length)
-   test('should return the new linked list', () => { 
-       doublyLinkedList.unshift("Node 1")
-       expect(doublyLinkedList.length).toBe(1)
-       expect(doublyLinkedList.head.value).toBe('Node 1')
-     })
-   test('should have Node 2 as head and Node 1 as tail', () => { 
-       doublyLinkedList.unshift("Node 2")
-
-       expect(doublyLinkedList.length).toBe(2)
-       expect(doublyLinkedList.head.value).toBe('Node 2')
-       expect(doublyLinkedList.head.next.value).toBe('Node 1')
-       expect(doublyLinkedList.tail.value).toBe('Node 1')
-     })
-   test('should have Node 3 as head and Node 1 as tail', () => { 
-       doublyLinkedList.unshift("Node 3")
-
-       expect(doublyLinkedList.length).toBe(3)
-       expect(doublyLinkedList.head.value).toBe('Node 3')
-       expect(doublyLinkedList.head.next.value).toBe('Node 2')
-       expect(doublyLinkedList.tail.value).toBe('Node 1')
-     })
- })
-
-
- describe('returns the node at a specific index', () => {
-   const doublyLinkedList1 = new DoublyLinkedList()
-   doublyLinkedList1.push("Node 1")
-   doublyLinkedList1.push("Node 2")
-   doublyLinkedList1.push("Node 3")
-   test('doublyLinkedList1.get(0).value should return Node 1', () => {
-      expect(doublyLinkedList1.get(0).value).toBe("Node 1")
-   })
-   test('doublyLinkedList1.get(1).value should return Node 2', () => {
-      expect(doublyLinkedList1.get(1).value).toBe("Node 2")
-   })
-   test('doublyLinkedList1.get(2).value should return Node 3', () => {
-      expect(doublyLinkedList1.get(2).value).toBe("Node 3")
-   })
-   test('doublyLinkedList1.get(-1).value should return null', () => {
-      expect(doublyLinkedList1.get(-1)).toBe(null)
-   })
-   test('doublyLinkedList1.get(12).value should return null', () => {
-      expect(doublyLinkedList1.get(12)).toBe(null)
-   })
- })
-
- describe('sets the node with the provided value at a specific index', () => {
-   const doublyLinkedList1 = new DoublyLinkedList()
-   doublyLinkedList1.push("Node 1")
-   doublyLinkedList1.push("Node 2")
-   doublyLinkedList1.push("Node 3")
-   test('doublyLinkedList1.set(0,"Node 4") should return true', () => {
-      expect(doublyLinkedList1.set(0,'Node 4')).toBe(true)
-      expect(doublyLinkedList1.get(0).value).toBe("Node 4")
-   })
-   test('doublyLinkedList1.set(1,"Node 5") should return true', () => {
-      expect(doublyLinkedList1.set(1,'Node 5')).toBe(true)
-      expect(doublyLinkedList1.get(1).value).toBe("Node 5")
-   })
-   test('doublyLinkedList1.set(3,"Node 6") should return false', () => {
-      expect(doublyLinkedList1.set(3,'Node 6')).toBe(false)
-      expect(doublyLinkedList1.get(3)).toBe(null)
-   })
- })
+         })
+         test('should have Node 2 as head and Node 1 as tail', () => { 
+            doublyLinkedList.unshift("Node 2")
+            
+            expect(doublyLinkedList.length).toBe(2)
+            expect(doublyLinkedList.head.value).toBe('Node 2')
+            expect(doublyLinkedList.head.next.value).toBe('Node 1')
+            expect(doublyLinkedList.head.prev).toBe(undefined)
+            expect(doublyLinkedList.tail.value).toBe('Node 1')
+            expect(doublyLinkedList.tail.next).toBe(undefined)
+            expect(doublyLinkedList.tail.prev.value).toBe('Node 2')
+         })
+         test('should have Node 3 as head and Node 1 as tail', () => { 
+            doublyLinkedList.unshift("Node 3")
+            
+            expect(doublyLinkedList.length).toBe(3)
+            expect(doublyLinkedList.head.value).toBe('Node 3')
+            expect(doublyLinkedList.head.next.value).toBe('Node 2')
+            expect(doublyLinkedList.tail.value).toBe('Node 1')
+         })
+      })
+      
+      
+      describe('returns the node at a specific index', () => {
+         const doublyLinkedList1 = new DoublyLinkedList()
+         doublyLinkedList1.push("Node 1")
+         doublyLinkedList1.push("Node 2")
+         doublyLinkedList1.push("Node 3")
+         doublyLinkedList1.push("Node 4")
+         doublyLinkedList1.push("Node 5")
+         test('doublyLinkedList1.get(0).value should return Node 1', () => {
+            expect(doublyLinkedList1.get(0).value).toBe("Node 1")
+         })
+         test('doublyLinkedList1.get(1).value should return Node 2', () => {
+            expect(doublyLinkedList1.get(1).value).toBe("Node 2")
+         })
+         test('doublyLinkedList1.get(2).value should return Node 3', () => {
+            expect(doublyLinkedList1.get(2).value).toBe("Node 3")
+         })
+         test('doublyLinkedList1.get(3).value should return Node 4', () => {
+            expect(doublyLinkedList1.get(3).value).toBe("Node 4")
+         })
+         test('doublyLinkedList1.get(4).value should return Node 5', () => {
+            expect(doublyLinkedList1.get(4).value).toBe("Node 5")
+         })
+         test('doublyLinkedList1.get(-1).value should return null', () => {
+            expect(doublyLinkedList1.get(-1)).toBe(undefined)
+         })
+         test('doublyLinkedList1.get(12).value should return null', () => {
+            expect(doublyLinkedList1.get(12)).toBe(undefined)
+         })
+      })
+      
+      describe('sets the node with the provided value at a specific index', () => {
+         const doublyLinkedList1 = new DoublyLinkedList()
+         doublyLinkedList1.push("Node 1")
+         doublyLinkedList1.push("Node 2")
+         doublyLinkedList1.push("Node 3")
+         test('doublyLinkedList1.set(0,"Node 4") should return true', () => {
+            expect(doublyLinkedList1.set(0,'Node 4')).toBe(true)
+            expect(doublyLinkedList1.get(0).value).toBe("Node 4")
+         })
+         test('doublyLinkedList1.set(1,"Node 5") should return true', () => {
+            expect(doublyLinkedList1.set(1,'Node 5')).toBe(true)
+            expect(doublyLinkedList1.get(1).value).toBe("Node 5")
+         })
+         test('doublyLinkedList1.set(3,"Node 6") should return false', () => {
+            expect(doublyLinkedList1.set(3,'Node 6')).toBe(false)
+            expect(doublyLinkedList1.get(3)).toBe(undefined)
+         })
+      })
+      
+      
+      describe('inserts the node with the provided value at a specific index', () => {
+         const doublyLinkedList1 = new DoublyLinkedList()
+         doublyLinkedList1.push("Node 1")
+         doublyLinkedList1.push("Node 2")
+         doublyLinkedList1.push("Node 3")
+         test('doublyLinkedList1.insert(0,"Node 4") should return true', () => {
+            expect(doublyLinkedList1.insert(0,'Node 4')).toBe(true)
+            expect(doublyLinkedList1.get(0).value).toBe("Node 4")
+            expect(doublyLinkedList1.get(1).value).toBe("Node 1")
+            expect(doublyLinkedList1.length).toBe(4)
+         })
+         test('doublyLinkedList1.insert(3,"Node 5") should return true', () => {
+            expect(doublyLinkedList1.insert(3,'Node 5')).toBe(true)
+            expect(doublyLinkedList1.get(3).value).toBe("Node 5")
+            expect(doublyLinkedList1.get(4).value).toBe("Node 3")
+            expect(doublyLinkedList1.get(2).value).toBe("Node 2")
+            expect(doublyLinkedList1.length).toBe(5)
+         })
+         test('doublyLinkedList1.insert(2,"Node 6") should return true', () => {
+            expect(doublyLinkedList1.insert(2,'Node 6')).toBe(true)
+            expect(doublyLinkedList1.get(2).value).toBe("Node 6")
+            expect(doublyLinkedList1.get(1).value).toBe("Node 1")
+            expect(doublyLinkedList1.get(3).value).toBe("Node 2")
+            expect(doublyLinkedList1.length).toBe(6)
+         })
+         test('doublyLinkedList1.insert(10,"Node 5") should return false', () => {
+            expect(doublyLinkedList1.insert(10,'Node 5')).toBe(false)
+         })
+      })
  
- 
- describe('inserts the node with the provided value at a specific index', () => {
-   const doublyLinkedList1 = new DoublyLinkedList()
-   doublyLinkedList1.push("Node 1")
-   doublyLinkedList1.push("Node 2")
-   doublyLinkedList1.push("Node 3")
-   test('doublyLinkedList1.insert(0,"Node 4") should return true', () => {
-      expect(doublyLinkedList1.insert(0,'Node 4')).toBe(true)
-      expect(doublyLinkedList1.get(0).value).toBe("Node 4")
-      expect(doublyLinkedList1.length).toBe(4)
-   })
-   test('doublyLinkedList1.insert(4,"Node 5") should return true', () => {
-      expect(doublyLinkedList1.insert(4,'Node 5')).toBe(true)
-      expect(doublyLinkedList1.get(4).value).toBe("Node 5")
-      expect(doublyLinkedList1.length).toBe(5)
-   })
-   test('doublyLinkedList1.insert(2,"Node 6") should return true', () => {
-      expect(doublyLinkedList1.insert(2,'Node 6')).toBe(true)
-      expect(doublyLinkedList1.get(2).value).toBe("Node 6")
-      expect(doublyLinkedList1.get(1).value).toBe("Node 1")
-      expect(doublyLinkedList1.get(3).value).toBe("Node 2")
-      expect(doublyLinkedList1.length).toBe(6)
-   })
-   test('doublyLinkedList1.insert(10,"Node 5") should return false', () => {
-      expect(doublyLinkedList1.insert(10,'Node 5')).toBe(false)
-   })
- })
- 
- 
- describe('removes the node with the provided value at a specific index', () => {
+ describe.only('removes the node with the provided value at a specific index', () => {
    const doublyLinkedList1 = new DoublyLinkedList()
    doublyLinkedList1.push("Node 0")
    doublyLinkedList1.push("Node 1")
@@ -252,6 +270,8 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
    doublyLinkedList1.push("Node 4")
    test('doublyLinkedList1.remove(0) should return Node 0', () => {
       expect(doublyLinkedList1.remove(0).value).toBe("Node 0")
+      expect(doublyLinkedList1.get(1).value).toBe("Node 2")
+      expect(doublyLinkedList1.get(0).value).toBe("Node 1")
       expect(doublyLinkedList1.length).toBe(4)
    })
    test('doublyLinkedList1.remove(4) should return undefined', () => {
@@ -262,12 +282,12 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
       expect(doublyLinkedList1.remove(2).value).toBe('Node 3')
       expect(doublyLinkedList1.get(2).value).toBe("Node 4")
       expect(doublyLinkedList1.get(1).value).toBe("Node 2")
-      expect(doublyLinkedList1.get(3)).toBe(null)
+      expect(doublyLinkedList1.get(3)).toBe(undefined)
       expect(doublyLinkedList1.length).toBe(3)
    })
  })
 
-
+/* 
 describe('reverses a linked list in place', () => {
    let doublyLinkedList1 = new DoublyLinkedList()
    beforeEach(()=> {
@@ -296,4 +316,4 @@ describe('reverses a linked list in place', () => {
       expect(doublyLinkedList1.get(3).value).toBe("Node 1")
       expect(doublyLinkedList1.tail.value).toBe("Node 0")
    })
-}) */
+})  */
