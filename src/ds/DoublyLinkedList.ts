@@ -77,6 +77,79 @@ class DoublyLinkedList {
         return oldHead
     }
 
+    unshift(value:string): DoublyLinkedList{
+        let node = new Node(value)
+        if (this._length <= 0) return this.push(value)
+        this._head.prev = node
+        node.next = this._head
+        this._head = node
+        this._length++
+        return this
+    }
+
+    get(index: number): Node{
+        if (index < 0 || index >= this._length) return undefined
+        if (index == 0 || this._length == 1) return this._head
+        let node = null
+        if(index <= this._length/2){
+            node = this._head
+            for(let i = 1;i <= index; i++){
+                node = node.next
+            }
+        }
+        else {
+            node = this._tail
+            for(let i = this._length-2;i >= index; i--){
+                node = node.prev
+            }
+        }
+        return node
+    }
+
+    set(index:number, value:string): boolean{
+        let node = this.get(index)
+        if (!node) return false
+        node.value = value
+        return true
+    }
+
+    insert(index:number, value:string): boolean{
+        let node = this.get(index)
+        if (!node) return false
+        let newNode = new Node(value)
+        if(index == 0 && this.unshift(value)) return  true
+        if (index == this._length-1) {
+            newNode.next = this._tail
+            newNode.prev = this._tail.prev
+            this._tail.prev = newNode
+            this._length++
+            return true
+        }
+        let previous = node.prev
+        newNode.prev = previous
+        newNode.next = node
+        previous.next = newNode
+        this._length++
+        return true
+    }
+
+    remove(index:number): Node{
+        let targetNode = this.get(index)
+        if (!targetNode) return undefined
+
+        if(index == 0) return this.shift()
+        if(index == this._length -1) return this.pop()
+        
+        let previousNode = targetNode.prev
+        let nextNode = targetNode.next
+        targetNode.next = null
+        targetNode.prev = null
+        previousNode.next = nextNode
+        nextNode.prev = previousNode
+        this._length--
+        return targetNode
+    }
+
 }
 
 export { DoublyLinkedList }
