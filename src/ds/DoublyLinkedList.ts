@@ -150,6 +150,35 @@ class DoublyLinkedList {
         return targetNode
     }
 
+    reverse(): DoublyLinkedList{
+        if (this._length == 0) return undefined
+        if (this._length == 1) return this
+        let currentNode = this._head
+        this._head = this._tail
+        this._tail = currentNode
+        let prevNode = null
+        let nextNode 
+        for(let i=0; i < this._length; i++){
+            nextNode = currentNode.next
+            currentNode.next = prevNode
+            currentNode.prev = nextNode
+            prevNode = currentNode
+            currentNode = nextNode
+        }
+        this.print()
+        return this
+    }
+
+    print(){
+        let node = this._head
+        let str =''
+        for (let i= 0; i<this._length;i++){
+            str+=`${node.value} ${node.next ? '->':''}`
+            node = node.next
+        }
+        console.log(str);
+    }
+
 }
 
 export { DoublyLinkedList }
