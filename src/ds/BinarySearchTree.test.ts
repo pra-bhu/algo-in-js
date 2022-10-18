@@ -37,6 +37,10 @@ describe('create a Binary Search Tree', () => {
             expect(leftNode.left).toBeDefined()
             expect(leftNode.left.value).toBe(8)
         })
+
+        test('should return undefined if value already exists in the tree', () => {
+            expect(bst.insert(8)).toBeUndefined()
+        })
         
         test('should insert a node to right of the node 12', () => {
             bst.insert(13)
@@ -100,6 +104,10 @@ describe('create a Binary Search Tree', () => {
             expect(leftNode.value).toBe(12)
             expect(leftNode.left).toBeDefined()
             expect(leftNode.left.value).toBe(8)
+        })
+
+        test('should return undefined if value already exists in the tree', () => {
+            expect(bstR.insertRecursively(8)).toBeUndefined()
         })
         
         test('should insert a node to right of the node 12', () => {
