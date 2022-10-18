@@ -2,7 +2,7 @@ import { Queue } from './QueueWithSLL'
 describe('Create Queue', () => {
     const queue = new Queue()
     test('should create a queue as Singly Linked List', () => {
-        expect(queue.constructor.name).toBe("Queue")
+        expect(queue).toBeInstanceOf(Queue)
         expect(queue.size).toBe(0)
     })
     test('should push a new Value and return boolean', ()=>{
