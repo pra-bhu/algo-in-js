@@ -239,6 +239,12 @@ describe('TEST unshift:pushes a new element at the beginning of the linked list'
       expect(singlyLinkedList1.get(3)).toBe(null)
       expect(singlyLinkedList1.length).toBe(3)
    })
+   test('singlyLinkedList1.remove(2) should return Node 3', () => {
+      expect(singlyLinkedList1.remove(2).value).toBe('Node 4')
+      expect(singlyLinkedList1.get(1).value).toBe("Node 2")
+      expect(singlyLinkedList1.get(3)).toBe(null)
+      expect(singlyLinkedList1.length).toBe(2)
+   })
  })
 
 

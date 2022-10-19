@@ -285,23 +285,29 @@ describe('creates a Doubly Linked list', () => {
       expect(doublyLinkedList1.get(3)).toBe(undefined)
       expect(doublyLinkedList1.length).toBe(3)
    })
+   test('doublyLinkedList1.remove(2) should return Node 3', () => {
+      expect(doublyLinkedList1.remove(2).value).toBe('Node 4')
+      expect(doublyLinkedList1.get(1).value).toBe("Node 2")
+      expect(doublyLinkedList1.get(3)).toBe(undefined)
+      expect(doublyLinkedList1.length).toBe(2)
+   })
  })
 
 
-describe.only('reverses a linked list in place', () => {
-   let doublyLinkedList1 = new DoublyLinkedList()
-   // beforeEach(()=> {
-   //    doublyLinkedList1.push("Node 0")
-   //    doublyLinkedList1.push("Node 1")
-   //    doublyLinkedList1.push("Node 2")
-   //    doublyLinkedList1.push("Node 3")
-   //    doublyLinkedList1.push("Node 4")
-   //    return doublyLinkedList1
-   // })
+describe('reverses a linked list in place', () => {
    test('should return undefined', () => {
       let doublyLinkedList2 = new DoublyLinkedList();
       expect(doublyLinkedList2.reverse()).toBe(undefined)
    })
+
+   test('should return linked List in reverse order', () => {
+      const doublyLinkedList1 = new DoublyLinkedList()
+      doublyLinkedList1.push("Node 0")
+      doublyLinkedList1.reverse()
+      expect(doublyLinkedList1.head.value).toBe("Node 0")
+      expect(doublyLinkedList1.tail.value).toBe("Node 0")
+   })
+
    test('should return linked List in reverse order', () => {
       const doublyLinkedList1 = new DoublyLinkedList()
       doublyLinkedList1.push("Node 0")

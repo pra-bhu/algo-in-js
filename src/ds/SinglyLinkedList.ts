@@ -90,7 +90,6 @@ class SinglyLinkedList {
     Return the linked list */
     unshift(value : string): SinglyLinkedList{
         const node = new Node(value)
-        console.log("TEST "+ this.length)
         if(!this._head) {
             this._head = node 
             this._tail = this._head

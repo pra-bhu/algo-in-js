@@ -58,10 +58,12 @@ class BinarySearchTree{
         
         let node = nextNode || this.root
         if(value == node.value) return node
+
         if(value < node.value){
             if(node.left) return this.find(value, node.left)
             return undefined
         }
+        
         if(node.right) return this.find(value, node.right)
         return undefined
     }
