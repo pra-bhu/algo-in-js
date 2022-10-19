@@ -1,7 +1,7 @@
 class Node {
-    value:string
+    value:any
     next?:Node = null
-    constructor(value: string, next?:Node ) {
+    constructor(value: any, next?:Node ) {
         this.value = value
         this.next = next || null
     }
@@ -25,7 +25,7 @@ class Queue{
         return this._last
     }
 
-    enqueue(value:string):number{
+    enqueue(value:any):number{
         let node = new Node(value)
         if (this._size == 0) this._first = this._last = node
         else{

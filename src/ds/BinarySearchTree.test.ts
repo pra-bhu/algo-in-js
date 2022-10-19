@@ -5,34 +5,34 @@ describe('Binary Search Tree', () => {
     describe('Insert Iteratively:', () => {
         test('should create a BST', () => {
             expect(bst).toBeInstanceOf(BinarySearchTree)
-            expect(bst.root).toBeNull()
+            expect(bst._root).toBeNull()
         })
         test('should insert a node to root', () => {
             bst.insert(15)
-            expect(bst.root.value).toBe(15)
-            expect(bst.root.left).toBeNull()
-            expect(bst.root.right).toBeNull()
+            expect(bst._root.value).toBe(15)
+            expect(bst._root.left).toBeNull()
+            expect(bst._root.right).toBeNull()
         })
         test('should insert a node to left of the root', () => {
             bst.insert(12)
-            expect(bst.root.value).toBe(15)
-            expect(bst.root.left).toBeTruthy()
-            expect(bst.root.left.value).toBe(12)
-            expect(bst.root.right).toBeNull()
+            expect(bst._root.value).toBe(15)
+            expect(bst._root.left).toBeTruthy()
+            expect(bst._root.left.value).toBe(12)
+            expect(bst._root.right).toBeNull()
         })
         test('should insert a node to right of the root', () => {
             bst.insert(18)
-            expect(bst.root.value).toBe(15)
-            expect(bst.root.right).toBeTruthy()
-            expect(bst.root.right.value).toBe(18)
-            expect(bst.root.left).toBeTruthy()
-            expect(bst.root.left.value).toBe(12)
+            expect(bst._root.value).toBe(15)
+            expect(bst._root.right).toBeTruthy()
+            expect(bst._root.right.value).toBe(18)
+            expect(bst._root.left).toBeTruthy()
+            expect(bst._root.left.value).toBe(12)
         })
     
         test('should insert a node to left of the node 12', () => {
             bst.insert(8)
-            let leftNode = bst.root.left
-            expect(bst.root.value).toBe(15)
+            let leftNode = bst._root.left
+            expect(bst._root.value).toBe(15)
             expect(leftNode.value).toBe(12)
             expect(leftNode.left).toBeDefined()
             expect(leftNode.left.value).toBe(8)
@@ -44,8 +44,8 @@ describe('Binary Search Tree', () => {
         
         test('should insert a node to right of the node 12', () => {
             bst.insert(13)
-            let leftNode = bst.root.left
-            expect(bst.root.value).toBe(15)
+            let leftNode = bst._root.left
+            expect(bst._root.value).toBe(15)
             expect(leftNode.value).toBe(12)
             expect(leftNode.right).toBeDefined()
             expect(leftNode.right.value).toBe(13)
@@ -53,8 +53,8 @@ describe('Binary Search Tree', () => {
         
         test('should insert a node to left of the node 18', () => {
             bst.insert(16)
-            let rightNode = bst.root.right
-            expect(bst.root.value).toBe(15)
+            let rightNode = bst._root.right
+            expect(bst._root.value).toBe(15)
             expect(rightNode.value).toBe(18)
             expect(rightNode.left).toBeDefined()
             expect(rightNode.left.value).toBe(16)
@@ -62,8 +62,8 @@ describe('Binary Search Tree', () => {
         
         test('should insert a node to right of the node 18', () => {
             bst.insert(19)
-            let rightNode = bst.root.right
-            expect(bst.root.value).toBe(15)
+            let rightNode = bst._root.right
+            expect(bst._root.value).toBe(15)
             expect(rightNode.value).toBe(18)
             expect(rightNode.right).toBeDefined()
             expect(rightNode.right.value).toBe(19)
@@ -73,34 +73,34 @@ describe('Binary Search Tree', () => {
         let bstR = new BinarySearchTree()
         test('should create a BST', () => {
             expect(bstR).toBeInstanceOf(BinarySearchTree)
-            expect(bstR.root).toBeNull()
+            expect(bstR._root).toBeNull()
         })
         test('should insert a node to root', () => {
             bstR.insertRecursively(15)
-            expect(bstR.root.value).toBe(15)
-            expect(bstR.root.left).toBeNull()
-            expect(bstR.root.right).toBeNull()
+            expect(bstR._root.value).toBe(15)
+            expect(bstR._root.left).toBeNull()
+            expect(bstR._root.right).toBeNull()
         })
         test('should insert a node to left of the root', () => {
             bstR.insertRecursively(12)
-            expect(bstR.root.value).toBe(15)
-            expect(bstR.root.left).toBeTruthy()
-            expect(bstR.root.left.value).toBe(12)
-            expect(bstR.root.right).toBeNull()
+            expect(bstR._root.value).toBe(15)
+            expect(bstR._root.left).toBeTruthy()
+            expect(bstR._root.left.value).toBe(12)
+            expect(bstR._root.right).toBeNull()
         })
         test('should insert a node to right of the root', () => {
             bstR.insertRecursively(18)
-            expect(bstR.root.value).toBe(15)
-            expect(bstR.root.right).toBeTruthy()
-            expect(bstR.root.right.value).toBe(18)
-            expect(bstR.root.left).toBeTruthy()
-            expect(bstR.root.left.value).toBe(12)
+            expect(bstR._root.value).toBe(15)
+            expect(bstR._root.right).toBeTruthy()
+            expect(bstR._root.right.value).toBe(18)
+            expect(bstR._root.left).toBeTruthy()
+            expect(bstR._root.left.value).toBe(12)
         })
     
         test('should insert a node to left of the node 12', () => {
             bstR.insertRecursively(8)
-            let leftNode = bstR.root.left
-            expect(bstR.root.value).toBe(15)
+            let leftNode = bstR._root.left
+            expect(bstR._root.value).toBe(15)
             expect(leftNode.value).toBe(12)
             expect(leftNode.left).toBeDefined()
             expect(leftNode.left.value).toBe(8)
@@ -112,8 +112,8 @@ describe('Binary Search Tree', () => {
         
         test('should insert a node to right of the node 12', () => {
             bstR.insertRecursively(13)
-            let leftNode = bstR.root.left
-            expect(bstR.root.value).toBe(15)
+            let leftNode = bstR._root.left
+            expect(bstR._root.value).toBe(15)
             expect(leftNode.value).toBe(12)
             expect(leftNode.right).toBeDefined()
             expect(leftNode.right.value).toBe(13)
@@ -121,8 +121,8 @@ describe('Binary Search Tree', () => {
         
         test('should insert a node to left of the node 18', () => {
             bstR.insertRecursively(16)
-            let rightNode = bstR.root.right
-            expect(bstR.root.value).toBe(15)
+            let rightNode = bstR._root.right
+            expect(bstR._root.value).toBe(15)
             expect(rightNode.value).toBe(18)
             expect(rightNode.left).toBeDefined()
             expect(rightNode.left.value).toBe(16)
@@ -130,8 +130,8 @@ describe('Binary Search Tree', () => {
         
         test('should insert a node to right of the node 18', () => {
             bstR.insertRecursively(19)
-            let rightNode = bstR.root.right
-            expect(bstR.root.value).toBe(15)
+            let rightNode = bstR._root.right
+            expect(bstR._root.value).toBe(15)
             expect(rightNode.value).toBe(18)
             expect(rightNode.right).toBeDefined()
             expect(rightNode.right.value).toBe(19)

@@ -8,15 +8,18 @@ class Node{
 }
 
 class BinarySearchTree{
-    root:Node = null 
+    _root:Node = null 
 
+    get root():Node{
+        return this._root
+    }
     insert(value:number):BinarySearchTree{
         let newNode = new Node(value)
-        if (!this.root) {
-            this.root = newNode
+        if (!this._root) {
+            this._root = newNode
             return this
         }
-        let node = this.root
+        let node = this._root
         while(true){
             if(newNode.value == node.value) return undefined
             if (newNode.value < node.value){
@@ -36,11 +39,11 @@ class BinarySearchTree{
     }
 
     insertRecursively(value:number, nextNode?:Node):BinarySearchTree{
-        if (!this.root) {
-            this.root = new Node(value)
+        if (!this._root) {
+            this._root = new Node(value)
             return this
         }
-        let node = nextNode || this.root
+        let node = nextNode || this._root
         if(value == node.value) return undefined
         if(value < node.value){
             if(node.left) return this.insertRecursively(value, node.left)
@@ -54,19 +57,19 @@ class BinarySearchTree{
     }
 
     find(value:number, nextNode?: Node): Node{
-        if(!this.root) return undefined
+        if(!this._root) return undefined
         
-        let node = nextNode || this.root
+        let node = nextNode || this._root
         if(value == node.value) return node
 
         if(value < node.value){
             if(node.left) return this.find(value, node.left)
             return undefined
         }
-        
+
         if(node.right) return this.find(value, node.right)
         return undefined
     }
 }
 
-export { BinarySearchTree }
+export { BinarySearchTree, Node}
