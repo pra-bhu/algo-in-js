@@ -20,19 +20,17 @@ class BinarySearchTree{
         while(true){
             if(newNode.value == node.value) return undefined
             if (newNode.value < node.value){
-                if(node.left) {
-                    node = node.left
-                    continue
+                if(!node.left) {
+                    node.left = newNode
+                    return this
                 }
-                node.left = newNode
-                return this
+                node = node.left
             }else{
-                if(node.right){
-                    node = node.right
-                    continue
+                if(!node.right){
+                    node.right = newNode
+                    return this
                 }
-                node.right = newNode
-                return this
+                node = node.right
             }
         }
     }
@@ -53,6 +51,19 @@ class BinarySearchTree{
             node.right = new Node(value)
         }
         return this
+    }
+
+    find(value:number, nextNode?: Node): Node{
+        if(!this.root) return undefined
+        
+        let node = nextNode || this.root
+        if(value == node.value) return node
+        if(value < node.value){
+            if(node.left) return this.find(value, node.left)
+            return undefined
+        }
+        if(node.right) return this.find(value, node.right)
+        return undefined
     }
 }
 

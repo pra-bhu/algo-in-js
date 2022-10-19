@@ -1,6 +1,6 @@
 import { BinarySearchTree } from "./BinarySearchTree"
 
-describe('create a Binary Search Tree', () => {
+describe('Binary Search Tree', () => {
     let bst = new BinarySearchTree()
     describe('Insert Iteratively:', () => {
         test('should create a BST', () => {
@@ -136,5 +136,46 @@ describe('create a Binary Search Tree', () => {
             expect(rightNode.right).toBeDefined()
             expect(rightNode.right.value).toBe(19)
         })
+    })
+    describe('Find Node: ', () => {
+        let bst = new BinarySearchTree()
+        test('should return undefined', () => {
+            expect(bst.find(45)).toBeUndefined()
+        })
+        test('should return root node : 45', () => {
+            bst.insert(45)
+            expect(bst.find(45).value).toBe(45)
+        })
+        test('should return node : 25', () => {
+            bst.insert(90)
+            bst.insert(25)
+            bst.insert(12)
+            bst.insert(17)
+            bst.insert(199)
+            bst.insert(88)
+            bst.insert(86)
+            bst.insert(34)
+            bst.insert(9)
+            expect(bst.find(25).value).toBe(25)
+        })
+        test('should return node : 199', () => {
+            expect(bst.find(199).value).toBe(199)
+        })
+        test('should return node : 17', () => {
+            expect(bst.find(17).value).toBe(17)
+        })
+        
+        test('should return node : 9', () => {
+            expect(bst.find(9).value).toBe(9)
+        })
+        
+        test('should return undefined', () => {
+            expect(bst.find(8)).toBeUndefined()
+        })
+        
+        test('should return undefined', () => {
+            expect(bst.find(212)).toBeUndefined()
+        })
+
     })
 })
