@@ -13,8 +13,6 @@ describe('Breadth First Search', () => {
     }
     test('should return a list of visited Nodes in the tree', () => {
         const visited = bfsSearch(bst)
-        console.log({treeVals,visited});
-        
         expect(visited.length).toBeGreaterThan(0)
     })
 })

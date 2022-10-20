@@ -6,7 +6,7 @@ const bfsSearch = (tree:BinarySearchTree):Array<Node> =>{
     let q = new Queue()
     q.enqueue(tree.root)
     let visited:Array<Node> = []
-    while(q.size > 0){
+    while(q.size){
         let currentNode = q.first.value
         q.dequeue()
         visited.push(currentNode)
