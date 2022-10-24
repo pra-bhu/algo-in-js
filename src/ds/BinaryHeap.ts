@@ -13,10 +13,9 @@ class MaxBinaryHeap extends BinaryHeap {
 
   insert(value: any): number {
     let values = this._values
-    if (values.includes(value)) return undefined
     let childInd: number = values.push(value) - 1
     let parentInd: number = Math.floor((childInd - 1) / 2)
-    while (values[childInd] > values[parentInd]) {
+    while (values[childInd] >= values[parentInd]) {
       ;[values[childInd], values[parentInd]] = [values[parentInd],values[childInd]]
       childInd = parentInd
       parentInd = Math.floor((childInd - 1) / 2)
@@ -30,7 +29,6 @@ class MaxBinaryHeap extends BinaryHeap {
     if (values.length <= 1) return values.pop();
     [values[0], values[values.length - 1]] = [values[values.length - 1],values[0]]
     const result = values.pop()
-    console.log(values);
     this._sinkDown(values)
     return result
   }
@@ -62,11 +60,10 @@ class MinBinaryHeap extends BinaryHeap {
 
   insert(value: any): number {
     let values = this._values
-    if (values.includes(value)) return undefined
     let childInd: number = values.push(value) - 1
     let parentInd: number = Math.floor((childInd - 1) / 2)
     if (parentInd >= 0) {
-      while (values[childInd] < values[parentInd]) {
+      while (values[childInd] <= values[parentInd]) {
         ;[values[childInd], values[parentInd]] = [values[parentInd],values[childInd]]
         childInd = parentInd
         parentInd = Math.floor((childInd - 1) / 2)

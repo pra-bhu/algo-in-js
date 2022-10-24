@@ -7,9 +7,6 @@ describe('MaxBinaryHeap: ', () => {
         test('should insert a value', () => {
             expect(maxBinaryHeap.insert(88)).toBe(0)
         })
-        test('should return false', () => {
-            expect(maxBinaryHeap.insert(88)).toBeUndefined()
-        })
         test('should bubble up higher value to the top', () => {
             expect(maxBinaryHeap.insert(95)).toBe(0)
         })
@@ -78,9 +75,6 @@ describe('MinBinaryHeap: ', () => {
     const minBinaryHeap = new MinBinaryHeap()
     test('should insert a value', () => {
         expect(minBinaryHeap.insert(88)).toBe(0)
-    })
-    test('should return false', () => {
-        expect(minBinaryHeap.insert(88)).toBeUndefined()
     })
     test('should bubble up lower value to the top', () => {
         expect(minBinaryHeap.insert(75)).toBe(0)
